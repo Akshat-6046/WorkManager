@@ -1,0 +1,34 @@
+.slide {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 6px 0px #b5e8aa;
+    background-color:#46eb88c3;
+  }
+  
+  .text {
+    position: relative;
+    transition: 1.2s;
+  }
+  
+  .slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130%;
+    height: 55px;
+    background-color: #222325;
+    transform: translate(-110%, 0) skew(-30deg);
+    transition: 1.2s;
+  }
+  
+  .slide:hover .text {
+    color: #00f261c3;
+    font-weight: 600;
+  }
+  
+  .slide:hover::before {
+    transform: translate(-5%, 0) skew(-15deg);
+  }
+ 
