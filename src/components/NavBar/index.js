@@ -6,8 +6,8 @@ import NavTab from "react-bootstrap/Navbar";
 import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
-  const { pathname } = useLocation();
-
+    const { pathname } = useLocation();
+  
   return (
     <NavTab bg="dark" data-bs-theme="dark">
       <Container>
@@ -17,7 +17,9 @@ const NavBar = () => {
             <Link
               to="/"
               className={`${
-                pathname === "/" ? "text-success bg-white p-2 rounded fw-bold" : "text-light p-2"
+                pathname === "/"
+                  ? "text-success bg-white p-2 rounded fw-bold"
+                  : "text-light p-2"
               } text-decoration-none`}
             >
               Dashboard
@@ -27,7 +29,9 @@ const NavBar = () => {
             <Link
               to="/tasks"
               className={`${
-                pathname === "/tasks" ? "text-success bg-white p-2 rounded fw-bold" : "text-light p-2"
+                pathname === "/tasks"
+                  ? "text-success bg-white p-2 rounded fw-bold"
+                  : "text-light p-2"
               } text-decoration-none`}
             >
               Tasks
@@ -37,7 +41,9 @@ const NavBar = () => {
             <Link
               to="/charts"
               className={`${
-                pathname === "/charts" ? "text-success bg-white p-2 rounded fw-bold" : "text-light p-2"
+                pathname === "/charts"
+                  ? "text-success bg-white p-2 rounded fw-bold"
+                  : "text-light p-2"
               } text-decoration-none`}
             >
               Charts

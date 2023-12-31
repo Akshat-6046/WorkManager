@@ -53,7 +53,7 @@ function CardComponent({ tasks, setTasks, notify }) {
             >
               <Card.Body className="d-flex flex-column justify-content-center" style={{height:'200px'}}>
                 <Card.Title>{item.heading}</Card.Title>
-                <Card.Text style={{ width: "80%" }}>{item.desc}</Card.Text>
+                <Card.Text style={{ minHeight: "40%" }}>{item.desc}</Card.Text>
                 <button
                   onClick={() => handleClick(item.key)}
                   className={styles.slide}
