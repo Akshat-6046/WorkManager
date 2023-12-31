@@ -25,7 +25,7 @@ const EditTaskForm = ({
       return newTasks;
     });
     setValidated(true);
-    notify("Suadsjvnkasldn asdjvnkasd");
+    notify("Success!");
     setShowModal(null);
   };
 
