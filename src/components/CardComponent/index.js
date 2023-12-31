@@ -12,7 +12,6 @@ function CardComponent({ tasks, setTasks, notify }) {
   const [showModal, setShowModal] = useState(false);
   const [content, setContent] = useState(null);
   const handleClick = (key) => {
-
     switch (key) {
       case "add_tasks":
         setShowModal(true);
@@ -41,27 +40,36 @@ function CardComponent({ tasks, setTasks, notify }) {
       <div className="d-flex flex-wrap">
         {cardList.map((item) => {
           return (
-            <Card
-              key={item.key}
-              style={{
-                width: "32%",
-                margin: "14px 8px",
-                color: "#bae6cb",
-                background: "rgb(3 9 15 / 54%)",
-                backdropFilter: 'blur(4px)'
-              }}
-            >
-              <Card.Body className="d-flex flex-column justify-content-center" style={{height:'200px'}}>
-                <Card.Title>{item.heading}</Card.Title>
-                <Card.Text style={{ minHeight: "40%" }}>{item.desc}</Card.Text>
-                <button
-                  onClick={() => handleClick(item.key)}
-                  className={styles.slide}
+              <Card
+                key={item.key}
+                style={{
+                  width: "32%",
+                  margin: "14px 8px",
+                  color: "#bae6cb",
+                  background: "rgb(3 9 15 / 54%)",
+                  backdropFilter: "blur(4px)",
+                }}
+              >
+                <Card.Body
+                  className="d-flex flex-column justify-content-center"
+                  style={{ height: "23s0px" }}
                 >
-                  <div className={styles.text}>{item.heading}</div>
-                </button>
-              </Card.Body>
-            </Card>
+                  <div className='d-flex pb-3 align-items-center'>
+
+                  <Card.Title style={{width:'90%', paddingLeft:'12%'}}>{item.heading}</Card.Title>
+                  {item.icon}
+                  </div>
+                  <Card.Text style={{ minHeight: "40%" }}>
+                    {item.desc} 
+                  </Card.Text>
+                  <button
+                    onClick={() => handleClick(item.key)}
+                    className={styles.slide}
+                  >
+                    <div className={styles.text}>{item.heading}</div>
+                  </button>
+                </Card.Body>
+              </Card>
           );
         })}
       </div>
