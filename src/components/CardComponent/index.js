@@ -52,7 +52,7 @@ function CardComponent({ tasks, setTasks, notify }) {
               >
                 <Card.Body
                   className="d-flex flex-column justify-content-center"
-                  style={{ height: "23s0px" }}
+                  style={{ height: "230px" }}
                 >
                   <div className='d-flex pb-3 align-items-center'>
 

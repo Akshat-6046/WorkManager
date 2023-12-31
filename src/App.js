@@ -6,41 +6,45 @@ import CardComponent from "./components/CardComponent";
 import ListComponent from "./components/ListComponent";
 import Charts from "./components/Charts";
 import { ToastContainer, toast } from "react-toastify";
-import './App.css'
+import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 const App = () => {
-  
-  const notify = (msg = 'Success!') =>
+  const notify = (msg = "Success!") =>
     toast.success(msg, {
       position: "top-center",
       autoClose: 1500,
-      limit:'2',
+      limit: "2",
       hideProgressBar: true,
       theme: "light",
     });
-  
-  const [tasks, setTasks] = useState([]);
 
-  useEffect(()=>{
-    const localStorageRaw = localStorage.getItem('tasks');
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const localStorageRaw = localStorage.getItem("tasks");
     let localStorageParsed = [];
-    if(!!localStorageRaw){
+    if (!!localStorageRaw) {
       localStorageParsed = JSON.parse(localStorageRaw);
     }
 
-      if (localStorageParsed?.length>0) {
-        setTasks(localStorageParsed);
-       }
-  },[]);
-
-  useEffect(()=>{
-    if((tasks||[])?.length>0){
-      localStorage.setItem('tasks', JSON?.stringify(tasks));
+    if (localStorageParsed?.length > 0) {
+      setTasks(localStorageParsed);
     }
-  },[tasks]);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  useEffect(() => {
+    if ((tasks || [])?.length > 0) {
+      localStorage.setItem("tasks", JSON?.stringify(tasks));
+    }
+  }, [tasks]);
 
   return (
-    <div className='mainApp'>
+    <div className="mainApp">
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -71,6 +75,7 @@ const App = () => {
                 tasks={tasks}
                 setTasks={setTasks}
                 notify={notify}
+                loading={loading}
               />
             }
           />
